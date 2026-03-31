@@ -31,6 +31,7 @@
 
     <div class="sidebar-footer">
       <LanguageSwitcher v-show="!isCollapsed" />
+      <ThemeToggle v-show="!isCollapsed" />
       <ProfileMenu
         @show-profile-details="$emit('show-profile-details')"
         @show-tasks="$emit('show-tasks')"
@@ -45,6 +46,7 @@ import { useSidebar } from '../composables/useSidebar'
 import { useI18n } from '../composables/useI18n'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 import ProfileMenu from './ProfileMenu.vue'
+import ThemeToggle from './ThemeToggle.vue'
 
 const svg = (paths) =>
   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' + paths + '</svg>'
@@ -60,7 +62,7 @@ const ICONS = {
 
 export default {
   name: 'AppSidebar',
-  components: { LanguageSwitcher, ProfileMenu },
+  components: { LanguageSwitcher, ProfileMenu, ThemeToggle },
   emits: ['show-profile-details', 'show-tasks'],
   setup() {
     const { isCollapsed, toggle } = useSidebar()
