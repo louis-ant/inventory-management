@@ -124,13 +124,13 @@ class Task(BaseModel):
     id: int
     title: str
     priority: str
-    dueDate: str
+    due_date: str
     status: str
 
 class TaskCreate(BaseModel):
     title: str
     priority: str
-    dueDate: str
+    due_date: str
 
 # In-memory task store (mock ids use 1-4, start at 1000 to avoid collision)
 tasks_store: List[dict] = []
@@ -343,7 +343,7 @@ def create_task(task: TaskCreate):
         "id": _task_id_counter,
         "title": task.title,
         "priority": task.priority,
-        "dueDate": task.dueDate,
+        "due_date": task.due_date,
         "status": "pending",
     }
     _task_id_counter += 1

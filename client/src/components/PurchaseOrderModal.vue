@@ -160,6 +160,7 @@
           <div class="modal-footer">
             <button class="btn-secondary" @click="close" :disabled="submitting">Close</button>
             <button
+              type="button"
               v-if="mode === 'create'"
               class="btn-primary"
               :disabled="submitting"
@@ -263,7 +264,8 @@ export default {
 
     const formatDate = (dateString) => {
       if (!dateString) return 'N/A'
-      const date = new Date(dateString)
+      // Append time to avoid UTC midnight being shifted to prior day in local timezones
+      const date = new Date(dateString + 'T00:00:00')
       if (isNaN(date.getTime())) return dateString
       return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
     }
