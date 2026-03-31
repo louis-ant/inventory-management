@@ -72,7 +72,7 @@ export default {
       { path: '/orders',    label: t('nav.orders'),         icon: ICONS.cart },
       { path: '/spending',  label: t('nav.finance'),        icon: ICONS.dollar },
       { path: '/demand',    label: t('nav.demandForecast'), icon: ICONS.trend },
-      { path: '/reports',   label: 'Reports',               icon: ICONS.document }
+      { path: '/reports',   label: t('nav.reports'),        icon: ICONS.document }
     ])
 
     return { isCollapsed, toggle, t, navItems }
